@@ -26,5 +26,18 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "vite": "^6.2.3"
-  }
+  },
+  "description": "Genius e-Library Project",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4-team-genius/genius-e-library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4-team-genius/genius-e-library/issues"
+  },
+  "homepage": "https://github.com/4-team-genius/genius-e-library#readme"
 }
