@@ -5,7 +5,7 @@ const BookList = (props) => {
 
   useEffect(() => {
     const getBooks = async () => {
-      const response = await fetch('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books')
+      const response = await fetch('localhost:3000/api/books')
       const responseJson = await response.json()
       setBooks(responseJson.books)
     }
