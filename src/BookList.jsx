@@ -7,7 +7,7 @@ const BookList = ({ setBookDetails }) => {
   useEffect(() => {
     const getBooks = async () => {
       try {
-        const response = await fetch('/api/v1/bookslist');
+        const response = await fetch('/api/v1/booklist');
         const bookObject = await response.json();
         setBooks(bookObject.books);
       } catch (err) {
