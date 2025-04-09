@@ -1,25 +1,40 @@
-import BookCategory from "./BookCategory";
-import { useEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import { useState } from 'react';
+import BookList from './BookList.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import Account from './Account.jsx';
 
 const App = () => {
-  const [books, setBooks] = useState([]);
-  const [selectedBook, setSelectedBook] = useState(null);
-
-  useEffect(() => {
-    const getBooks = async () => {
-      const response = await fetch("http://localhost:3000/api/books");
-      const responseJson = await response.json();
-      setBooks(responseJson.books);
-    };
-    getBooks();
-  }, []);
+  const [user, setUser] = useState();
+  const [bookDetails, setBookDetails] = useState({});
 
   return (
-    <section>
-      <h1>Genius E-Library</h1>
-      <BookCategory books={books} setSelectedBook={setSelectedBook} />
-    </section>
-  );
-}
+    <>
+      <div>
+        <h1>Genius e-Library</h1>
+        <nav>
+          <Link to="/books">Home</Link>
+          {!user ? (
+            <>
+              <Link to="/login">Log In</Link>
+              <Link to="/register">Register</Link>
+            </>
+          ) : (
+            <Link to="/account">My Account</Link>
+          )}
+        </nav>
 
-export default App;j
+        <Routes>
+          <Route path="/books" element={<BookList setBookDetails={setBookDetails} />} />
+          <Route path="/books/:id" element={<BookDetails bookDetails={bookDetails} setBookDetails={setBookDetails} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={setUser} />} />
+          <Route path="/account" element={<Account user={user} />} />
+        </Routes>
+      </div>
+    </>
+  );
+};
+
+export default App;
