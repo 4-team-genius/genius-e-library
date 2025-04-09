@@ -1,35 +1,34 @@
-import {useEffect, useState} from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const BookList = (props) => {
+const BookList = ({ setBookDetails }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
-      const response = await fetch('localhost:3000/api/books')
-      const responseJson = await response.json()
-      setBooks(responseJson.books)
-    }
-  getBooks();
-  
-}, []);
-  const contactClick = (book) => {
-    props.setSelectedBook(book);
-  };
+      try {
+        const response = await fetch('/api/v1/booklist');
+        const bookObject = await response.json();
+        setBooks(bookObject.books);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getBooks();
+  }, []);
 
   return (
-    <ul>
-      {books.map((individualBook) => {
-        return (
-          <li
-            onClick={() => {contactClick(individualBook)}}
-            key={individualBook.id}
-            >
-            {individualBook.title}
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
+    <ol>
+      {books.map((eachBook) => (
+        <li key={eachBook.id}>
+          <Link to={`/books/${eachBook.id}`} onClick={() => setBookDetails(eachBook)}>
+            {eachBook.title}
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
+};
 
 export default BookList;
