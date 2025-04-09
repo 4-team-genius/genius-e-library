@@ -1,9 +1,19 @@
-import {BrowserRouter} from 'react-router-dom'
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
-import App from './App.jsx'
+import App from './App'
 
-createRoot(document.getElementById('root')).render
-  (<BrowserRouter>
-    <App />
-  </BrowserRouter>)
+const router = createBrowserRouter([
+  {
+    path: "/*",
+    element: <App />,
+  }
+])
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+)

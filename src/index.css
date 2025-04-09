@@ -1,0 +1,56 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+}
+
+/* Book Page Styles */
+/* .book-page {
+  padding: 2rem 0;
+} */
+
+.book-cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+.book-cover img {
+  transition: transform 0.3s ease;
+}
+
+.book-cover:hover img {
+  transform: scale(1.05);
+}
+
+.advert-box {
+  border-left: 4px solid #0d6efd;
+  transition: transform 0.2s ease;
+}
+
+.advert-box:hover {
+  transform: translateY(-5px);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
