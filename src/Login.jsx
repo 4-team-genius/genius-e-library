@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Login.jsx
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -8,7 +9,7 @@ const Login = ({ setUser }) => {
   useEffect(() => {
     const attemptToLoginWithToken = async () => {
       const localStorageToken = localStorage.getItem('token');
-      
+
       if (localStorageToken) {
         try {
           const response = await fetch('/api/v1/login', {
@@ -31,7 +32,7 @@ const Login = ({ setUser }) => {
     };
 
     attemptToLoginWithToken();
-  }, []); 
+  }, []);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -45,11 +46,11 @@ const Login = ({ setUser }) => {
       });
 
       const data = await response.json();
-      
+
       if (data.token) {
-        localStorage.setItem('token', data.token);  
-        setToken(data.token); 
-        setUser(data.user); 
+        localStorage.setItem('token', data.token);
+        setToken(data.token);
+        setUser(data.user);
         alert('LOGIN SUCCESSFUL');
       } else {
         alert('LOGIN FAILED');
@@ -63,32 +64,32 @@ const Login = ({ setUser }) => {
   const logOut = () => {
     localStorage.removeItem('token');
     setToken('');
-    setUser(null); 
+    setUser(null);
   };
 
   return (
-    <>
-      <h1>Genius-e-Library</h1>
-      {token ? (
-        <>
-          <h1>Welcome to Genius e-Library</h1>
-          <button onClick={logOut}>LogOut</button>
-        </>
-      ) : (
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Welcome Back! 👋</h2>
         <form onSubmit={handleLogin}>
           <input
-            placeholder="email"
-            onChange={(event) => setEmail(event.target.value)}
+            type="email"
+            placeholder="Email"
+            className="form-input"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            placeholder="password"
-            onChange={(event) => setPassword(event.target.value)}
             type="password"
+            placeholder="Password"
+            className="form-input"
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">LogIn</button>
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
         </form>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 
