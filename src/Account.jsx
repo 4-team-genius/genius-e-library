@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserByToken } from './api/v1/users';
+//import { getUserByToken } from './api/v1/users';
 
 const Account = () => {
   const [user, setUser] = useState(null);

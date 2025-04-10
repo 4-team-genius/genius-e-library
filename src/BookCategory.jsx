@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getBookCategory } from "./api/v1/categories";
+import { getBookCategory } from "./api/v1/";
 
 const BookCategory = () => {
   const { id } = useParams();
