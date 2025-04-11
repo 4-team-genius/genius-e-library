@@ -36,29 +36,30 @@ const Login = ({ setUser }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    try {
-      const response = await fetch('/api/v1/login', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+    setUser({email});
+    // try {
+    //   const response = await fetch('/api/v1/login', {
+    //     method: 'POST',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ email, password }),
+    //   });
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        setToken(data.token);
-        setUser(data.user);
-        alert('LOGIN SUCCESSFUL');
-      } else {
-        alert('LOGIN FAILED');
-      }
-    } catch (err) {
-      alert('LOGIN FAILED');
-      console.error("Login error", err);
-    }
+    //   if (data.token) {
+    //     localStorage.setItem('token', data.token);
+    //     setToken(data.token);
+    //     setUser(data.user);
+    //     alert('LOGIN SUCCESSFUL');
+    //   } else {
+    //     alert('LOGIN FAILED');
+    //   }
+    // } catch (err) {
+    //   alert('LOGIN FAILED');
+    //   console.error("Login error", err);
+    // }
   };
 
   const logOut = () => {
