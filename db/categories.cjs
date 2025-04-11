@@ -14,6 +14,16 @@ const createCategory = async(categoryName) => {
   }
 }
 
-module.exports = {
-  createCategory
+const getCategories = async() => {
+  console.log('GETTING CATEGORIES...');
+  const { rows } = await client.query(`
+    SELECT * FROM categories;
+  `);
+
+  return rows;
+}
+
+module.export = {
+  createCategory,
+  getCategories
 }
