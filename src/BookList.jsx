@@ -12,22 +12,30 @@ const BookList = ({ setBookDetails }) => {
 
   const filteredBooks = selectedCategory === 'All'
     ? books
-    : books.filter(book => book.category.toLowerCase() === selectedCategory.toLowerCase());
+    : books.filter(book =>
+      book.category.toLowerCase() === selectedCategory.toLowerCase()
+    );
 
   return (
     <div className="book-list-container">
       <div className="filters">
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="category-filter"
-        >
-          {categories.map(cat => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="category-filter"
+          >
+            {categories.map(cat => (
+              <option key={cat.name} value={cat.name}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <Link to="/add-book" className="add-book-button">
+          Add New Book
+        </Link>
       </div>
 
       <div className="books-grid">
@@ -50,13 +58,17 @@ const BookList = ({ setBookDetails }) => {
                 {eachBook.description?.slice(0, 30) + '...'}
               </p>
               <div className="book-category">
-                {eachBook.category}
+                <Link
+                  to={`/category/${eachBook.category}`}
+                  className=""
+                >
+                  {eachBook.category}
+                </Link>
               </div>
             </div>
           </div>
         ))}
 
-        {/* Advertisement Card */}
         <div className="ad-card">
           <h3>Special Offer! 🎉</h3>
           <p>Get premium membership for 50% off!</p>

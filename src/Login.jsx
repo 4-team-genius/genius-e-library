@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-// Login.jsx
+import { Link } from "react-router-dom";
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,7 +69,7 @@ const Login = ({ setUser }) => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h2>Welcome Back! 👋</h2>
+        <h2 className="login-title">Welcome Back! 👋</h2>
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -88,6 +87,13 @@ const Login = ({ setUser }) => {
             Sign In
           </button>
         </form>
+
+        <p className="register-prompt">
+          Don't have an account?{" "}
+          <Link to="/register" className="register-link">
+            Register here
+          </Link>
+        </p>
       </div>
     </div>
   );

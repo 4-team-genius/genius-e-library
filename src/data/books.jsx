@@ -1,9 +1,8 @@
-// In your BookList.jsx or create a separate data/books.js file
 export const fakeBooks = [
     {
         id: 1,
         title: "The Silent Echo",
-        description: "A mysterious tale of forgotten memories in a small coastal town...",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         category: "Mystery",
         image: "https://picsum.photos/200/300?random=1"
     },
@@ -58,15 +57,41 @@ export const fakeBooks = [
     }
 ];
 
-// Sample categories array for filtering
 export const categories = [
-    "All",
-    "Mystery",
-    "Science",
-    "Technology",
-    "Fantasy",
-    "Science Fiction",
-    "Self-Help",
-    "Cooking",
-    "Finance"
+    {
+        name: "All",
+        description: "Browse through our complete collection of books across all categories"
+    },
+    {
+        name: "Mystery",
+        description: "Unravel puzzles and solve crimes with thrilling detective stories"
+    },
+    {
+        name: "Science",
+        description: "Explore scientific discoveries and fundamental principles of nature"
+    },
+    {
+        name: "Technology",
+        description: "Dive into programming, innovation, and digital transformation"
+    },
+    {
+        name: "Fantasy",
+        description: "Journey through magical realms and epic mythical adventures"
+    },
+    {
+        name: "Science Fiction",
+        description: "Experience futuristic technologies and space exploration"
+    },
+    {
+        name: "Self-Help",
+        description: "Improve personal growth and mental well-being"
+    },
+    {
+        name: "Cooking",
+        description: "Discover culinary arts and global cuisine techniques"
+    },
+    {
+        name: "Finance",
+        description: "Master money management and wealth building strategies"
+    }
 ];

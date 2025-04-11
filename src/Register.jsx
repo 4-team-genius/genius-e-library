@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-// Login.jsx
 const Register = ({ setUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -89,6 +89,13 @@ const Register = ({ setUser }) => {
                         Sign In
                     </button>
                 </form>
+
+                <p className="register-prompt">
+                    Already have an account?{" "}
+                    <Link to="/login" className="register-link">
+                        Sign in here
+                    </Link>
+                </p>
             </div>
         </div>
     );
