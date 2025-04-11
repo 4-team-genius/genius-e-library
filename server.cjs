@@ -1,6 +1,6 @@
 const express = require('express');
-const { getBooks, getBooks } = require('./db/booklist.cjs');
-const { getBookCategories } = require('./db/categories.cjs');
+const { getBooks } = require('./db/booklist.cjs');
+const { getCategories } = require('./db/categories.cjs');
 const { getUserByToken } = require('./db/users.cjs');
 const app = express();
 
