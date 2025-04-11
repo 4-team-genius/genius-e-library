@@ -1,5 +1,5 @@
 const express = require('express');
-const { getBooks } = require('./db/booklist.cjs');
+const { getBooks, getBooks } = require('./db/booklist.cjs');
 const { getBookCategories } = require('./db/categories.cjs');
 const { getUserByToken } = require('./db/users.cjs');
 const app = express();
@@ -33,7 +33,6 @@ app.use(express.static('dist'));
     }
   });
 
-  
 
 
   app.listen(3000, () =>

@@ -52,6 +52,9 @@ const BookList = ({ setBookDetails }) => {
               <div className="book-category">
                 {eachBook.category}
               </div>
+              <button className="Free-button">Free</button>
+              <button className="Rent-button">Rent</button>
+              <button className="Buy-button">Buy</button>
             </div>
           </div>
         ))}

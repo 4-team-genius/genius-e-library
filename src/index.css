@@ -156,6 +156,31 @@
     transition: transform 0.3s ease;
 }
 
+.Free-button {
+    background: rgb(7, 155, 12);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 110px;
+}
+
+.Rent-button {
+    background: orange;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.Buy-button {
+    background: red;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
 .cta-button:hover {
     transform: scale(1.05);
 }
